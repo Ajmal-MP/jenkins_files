@@ -1,0 +1,17 @@
+1. Install maven jenkins integration plugin
+2. jenkins Home > Global tool configration   ===> set maven
+
+pipeline {
+    agent any
+    tools {
+        maven "maven"
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                sh "mvn -v"
+            }
+        }
+    }
+}

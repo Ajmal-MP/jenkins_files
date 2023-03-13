@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  jenkins_1:
+    image: "jenkins/jenkins:lts"
+    container_name: jenkins_1
+    user: root
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./jenkins_1:/var/jenkins_home
+
+  jenkins_2:
+    image: "jenkins/jenkins:lts"
+    container_name: jenins_2
+    user: root
+    ports:
+      - 8001:8080
+    volumes:
+      - ./jenkins_2:/var/jenkins_home

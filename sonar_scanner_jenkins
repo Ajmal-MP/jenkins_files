@@ -1,0 +1,19 @@
+1. install sonar scanner plugin
+2. manage jenkins > global tool configration ====> set sonar qube
+3. manage jenkins > configure system  ===> set sonar qube
+
+pipeline {
+  agent any
+  stages {
+    stage('SonarQube analysis') {
+      steps {
+        script {
+          scannerHome = tool 'SonarQube'
+        }
+        withSonarQubeEnv('SonarQube') {
+          sh "${scannerHome}/bin/sonar-scanner"
+        }
+      }
+    }
+  }
+}
